@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="DevTales">
 <meta property="og:description" content="DefinitionA peak in an array is a position that is greater than or equal to its adjacent elements. If the peak is an edge element, i.e. the first or the last element in the array, then it must be grea">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-11T20:23:04.117Z">
+<meta property="og:updated_time" content="2019-07-11T21:08:49.313Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="One-dimensional Peak finding problem">
 <meta name="twitter:description" content="DefinitionA peak in an array is a position that is greater than or equal to its adjacent elements. If the peak is an edge element, i.e. the first or the last element in the array, then it must be grea">
@@ -160,6 +160,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">Best-case: Θ(1)</span></span><br><span class="line"><span class="string">Worst-case: T(n) = T(n/2) + Θ(1) = Θ(1) * (lg n) = Θ(lg n)</span></span><br><span class="line"><span class="string">Average-case: Θ(lg n)</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_1d_peak</span><span class="params">(A, start, end)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> start == end:</span><br><span class="line">        <span class="keyword">return</span> start</span><br><span class="line">    mid = (start + end) // <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> A[mid<span class="number">-1</span>] &gt;= A[mid]:</span><br><span class="line">        <span class="keyword">return</span> find_1d_peak(A, start, mid<span class="number">-1</span>)</span><br><span class="line">    <span class="keyword">elif</span> A[mid+<span class="number">1</span>] &gt;= A[mid]:</span><br><span class="line">        <span class="keyword">return</span> find_1d_peak(A, mid+<span class="number">1</span>, end)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> mid</span><br></pre></td></tr></table></figure>
 
 <h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>That was a very simple one-dimensional, peak finding, problem. I’ll look at the two-dimensional variation in the next post :)</p>
+<p>Edit: Here is the <a href="../../12/Two-dimensional-Peak-finding-problem/">second post</a></p>
 
   </div>
 </article>
