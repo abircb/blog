@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Before reading this, I’d recommend reading the previous post on the one-dimensional version of the Peak finding problem. DefinitionA peak in a 2D array (or matrix) is an element that is greater than o">
+<meta name="keywords" content="Algorithms,Algorithmic thinking">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Two-dimensional Peak finding problem">
+<meta property="og:url" content="https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/index.html">
+<meta property="og:site_name" content="DevTales">
+<meta property="og:description" content="Before reading this, I’d recommend reading the previous post on the one-dimensional version of the Peak finding problem. DefinitionA peak in a 2D array (or matrix) is an element that is greater than o">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-11T21:02:06.197Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Two-dimensional Peak finding problem">
+<meta name="twitter:description" content="Before reading this, I’d recommend reading the previous post on the one-dimensional version of the Peak finding problem. DefinitionA peak in a 2D array (or matrix) is an element that is greater than o">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Two-dimensional Peak finding problem</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/blog/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/blog/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/blog/2019/07/11/Peak-finding-problem/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/&text=Two-dimensional Peak finding problem"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/&title=Two-dimensional Peak finding problem"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/&is_video=false&description=Two-dimensional Peak finding problem"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Two-dimensional Peak finding problem&body=Check out this article: https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/&title=Two-dimensional Peak finding problem"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/&title=Two-dimensional Peak finding problem"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/&title=Two-dimensional Peak finding problem"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/&title=Two-dimensional Peak finding problem"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/&name=Two-dimensional Peak finding problem&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Definition"><span class="toc-number">1.</span> <span class="toc-text">Definition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Brute-force-approach"><span class="toc-number">2.</span> <span class="toc-text">Brute-force approach</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#First-attempt"><span class="toc-number">3.</span> <span class="toc-text">First attempt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Second-attempt"><span class="toc-number">4.</span> <span class="toc-text">Second attempt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary"><span class="toc-number">5.</span> <span class="toc-text">Summary</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Two-dimensional Peak finding problem
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">DevTales</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-07-12T00:48:39.000Z" itemprop="datePublished">2019-07-12</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/Algorithmic-thinking/">Algorithmic thinking</a>, <a class="tag-link" href="/blog/tags/Algorithms/">Algorithms</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>Before reading this, I’d recommend reading the <a href="../../11/Peak-finding-problem/">previous post</a> on the one-dimensional version of the Peak finding problem.</p>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>A peak in a 2D array (or matrix) is an element that is greater than or equal to all of its adjacent elements.</p>
+<h2 id="Brute-force-approach"><a href="#Brute-force-approach" class="headerlink" title="Brute-force approach"></a>Brute-force approach</h2><p>The brute-force approach is simple: compare each element with its adjacent elements, until a peak is found.</p>
+<p>Worst-case time complexity: Θ(m*n)</p>
+<h2 id="First-attempt"><a href="#First-attempt" class="headerlink" title="First attempt"></a>First attempt</h2><p>For a 2D array A[] with n rows and m columns, we can use a variation of the 1D peak finding algorithm to find the 2D peak:</p>
+<p>• Pick middle column j = m/2.<br>• Find a 1D-peak at A[i, j]<br>• Use A[i, j] as a start point on row i to find 1D-peak on row i.</p>
+<p>However, you’ll see that this doesn’t work very well and it will lead to a wrong peak value.</p>
+<p>Eg:<br> 14, 6, 12<br> 15, 9, 11<br> 16, 4, 18</p>
+<p>End up with 15, which is not a 2D peak</p>
+<h2 id="Second-attempt"><a href="#Second-attempt" class="headerlink" title="Second attempt"></a>Second attempt</h2><p>We can fix this quite easily by fixing our second step:</p>
+<p>• Pick middle column j = m/2<br>• Find global maximum on column j at A[i, j]<br>• Compare (i, j − 1), (i, j), (i, j + 1)<br>• Pick the left column if (i, j − 1) &gt; (i,j)<br>• Pick the right column if (i, j + 1) &gt; (i,j)<br>• A[i,j] is a 2D-peak if neither condition holds (trivial)<br>• Solve the new problem with half the number of columns until there is a single column is left</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">Best-case: Θ(1)</span></span><br><span class="line"><span class="string">Worst-case: T(n) = T(n/2) + Θ(n) = Θ(n * lg n)</span></span><br><span class="line"><span class="string">Average-case: Θ(n * lg n)</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">globalMax</span><span class="params">(A, column)</span>:</span></span><br><span class="line">    row = <span class="number">1</span></span><br><span class="line">    max = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> row &lt; len(A):</span><br><span class="line">        <span class="keyword">if</span> A[row][column] &gt; A[max][column]:</span><br><span class="line">            max = row</span><br><span class="line">        row += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> max</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_2d_peak</span><span class="params">(A, startCol, endCol)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> startCol == endCol:</span><br><span class="line">        <span class="keyword">return</span> (globalMax(A, startCol) , startCol)</span><br><span class="line">    midCol = (startCol + endCol) // <span class="number">2</span></span><br><span class="line">    colMax = globalMax(A, midCol)</span><br><span class="line">    <span class="keyword">if</span> A[colMax][midCol + <span class="number">1</span>] &gt;= A[colMax][midCol]:</span><br><span class="line">        <span class="keyword">return</span> find_2d_peak(A, midCol + <span class="number">1</span>, endCol)</span><br><span class="line">    <span class="keyword">elif</span> A[colMax][midCol - <span class="number">1</span>] &gt;= A[colMax][midCol]:</span><br><span class="line">        <span class="keyword">return</span> find_2d_peak(A, startCol, midCol<span class="number">-1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> (colMax, midCol)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>This is the end of the Peak finding problem. I am currently nearing the end of my website’s development. The process has been a slow, but rewarding one and I look forward to releasing the website and getting feedback from y’all!</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Definition"><span class="toc-number">1.</span> <span class="toc-text">Definition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Brute-force-approach"><span class="toc-number">2.</span> <span class="toc-text">Brute-force approach</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#First-attempt"><span class="toc-number">3.</span> <span class="toc-text">First attempt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Second-attempt"><span class="toc-number">4.</span> <span class="toc-text">Second attempt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary"><span class="toc-number">5.</span> <span class="toc-text">Summary</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/&text=Two-dimensional Peak finding problem"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/&title=Two-dimensional Peak finding problem"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/&is_video=false&description=Two-dimensional Peak finding problem"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Two-dimensional Peak finding problem&body=Check out this article: https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/&title=Two-dimensional Peak finding problem"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/&title=Two-dimensional Peak finding problem"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/&title=Two-dimensional Peak finding problem"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/&title=Two-dimensional Peak finding problem"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://abircb.github.io/blog/2019/07/12/Two-dimensional-Peak-finding-problem/&name=Two-dimensional Peak finding problem&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 Abir
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/blog/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+<script src="/blog/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
