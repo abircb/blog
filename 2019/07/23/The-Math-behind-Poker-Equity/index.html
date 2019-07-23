@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="What is Equity in Poker?Equity in poker is the share of the pot that is yours based on the odds that you will win the pot at that point in play. Equity changes after each street – pre-flop, flop, turn">
+<meta name="keywords" content="Poker,Probability">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Math behind Poker Equity">
+<meta property="og:url" content="https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/index.html">
+<meta property="og:site_name" content="DevTales">
+<meta property="og:description" content="What is Equity in Poker?Equity in poker is the share of the pot that is yours based on the odds that you will win the pot at that point in play. Equity changes after each street – pre-flop, flop, turn">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-23T10:21:09.941Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Math behind Poker Equity">
+<meta name="twitter:description" content="What is Equity in Poker?Equity in poker is the share of the pot that is yours based on the odds that you will win the pot at that point in play. Equity changes after each street – pre-flop, flop, turn">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>The Math behind Poker Equity</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/blog/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/blog/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/blog/2019/07/23/DataTables-API/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/&text=The Math behind Poker Equity"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/&title=The Math behind Poker Equity"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/&is_video=false&description=The Math behind Poker Equity"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=The Math behind Poker Equity&body=Check out this article: https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/&title=The Math behind Poker Equity"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/&title=The Math behind Poker Equity"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/&title=The Math behind Poker Equity"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/&title=The Math behind Poker Equity"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/&name=The Math behind Poker Equity&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-Equity-in-Poker"><span class="toc-number">1.</span> <span class="toc-text">What is Equity in Poker?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-your-equity"><span class="toc-number">2.</span> <span class="toc-text">Using your equity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-situation"><span class="toc-number">3.</span> <span class="toc-text">A situation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tip-of-the-Iceberg"><span class="toc-number">4.</span> <span class="toc-text">Tip of the Iceberg</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        The Math behind Poker Equity
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">DevTales</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-07-23T14:42:33.000Z" itemprop="datePublished">2019-07-23</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/Poker/">Poker</a>, <a class="tag-link" href="/blog/tags/Probability/">Probability</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="What-is-Equity-in-Poker"><a href="#What-is-Equity-in-Poker" class="headerlink" title="What is Equity in Poker?"></a>What is Equity in Poker?</h2><p>Equity in poker is the share of the pot that is yours based on the odds that you will win the pot at that point in play. Equity changes after each street – pre-flop, flop, turn and river. The strategy around poker equity is pretty simple. If you feel you have more equity in the pot than your opponent (i.e. you have the better hand at that moment) then you generally want to bet.</p>
+<h2 id="Using-your-equity"><a href="#Using-your-equity" class="headerlink" title="Using your equity"></a>Using your equity</h2><p>The first chance you get to use equity is pre-flop. If you feel you have the best hand but don’t raise, you’ve missed a big chance to increase your equity. Besides increasing your equity in the pot, raising pre-flop has many other advantages. It reduces the number of players in the pot, establishes your image as being strong and aggressive and can often result in you having “position” in the hand.</p>
+<p>Remember, just as you would not really know your equity at any given point in the hand, neither does your opponent. Everyone is trying to determine what each other’s equity is by putting them on a range of hands. If you are the aggressor, opponents will naturally think you are playing a stronger hand and perhaps give you credit for more equity than you really have, which you can exploit by continuation betting on dry or strong boards.</p>
+<h2 id="A-situation"><a href="#A-situation" class="headerlink" title="A situation"></a>A situation</h2><p>Three players go to the flop. You are last to act and have 10s-9s. Player 1 has Ah/8h and player 2 has Qc-Qd. The flop comes up 8s-7h-2s. If you stopped the hand right then, you would lose to both players. Player 1 has a pair of eights (not to mention a backdoor, nut flush draw) and Player 2 has a pair of queens.</p>
+<p>Your combined open-ended straight draw and flush draw actually gives you more equity than your opponents. At this point, you are a 55% favourite to win the hand. Player 2 is at 28% and Player 1 is at 17%.</p>
+<p>Therefore, Equity would dictate that you bet. Let’s say you are in position and both players check. You only have a 10-high at this point and figure to be behind both players, but your potential is so good that it makes sense to try a semi-bluff, so you put out a bet of 2,000, and both players call.</p>
+<p>In terms of equity, you gained 55% of the 6,000 chips bet, or roughly 3,300 chips – almost twice what you bet.</p>
+<p>Let’s say the turn is a brick for all three players – the 3 of diamonds. Your equity – the chance you will win the hand – has dropped to 36 percent. Player 1, with the pocket queens, is now at 55%, and Player 2 is at 9 percent.</p>
+<h2 id="Tip-of-the-Iceberg"><a href="#Tip-of-the-Iceberg" class="headerlink" title="Tip of the Iceberg"></a>Tip of the Iceberg</h2><p>Equity is not a hard and fast concept, unless your opponent has shown you their cards and you have a pot odds calculator at your disposal, you never really know your equity in a given situation, and you certainly can’t predict what your equity will be after the turn and river. Still, understanding the concept and how to apply it will 100% improve your game.</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-Equity-in-Poker"><span class="toc-number">1.</span> <span class="toc-text">What is Equity in Poker?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-your-equity"><span class="toc-number">2.</span> <span class="toc-text">Using your equity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-situation"><span class="toc-number">3.</span> <span class="toc-text">A situation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tip-of-the-Iceberg"><span class="toc-number">4.</span> <span class="toc-text">Tip of the Iceberg</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/&text=The Math behind Poker Equity"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/&title=The Math behind Poker Equity"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/&is_video=false&description=The Math behind Poker Equity"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=The Math behind Poker Equity&body=Check out this article: https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/&title=The Math behind Poker Equity"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/&title=The Math behind Poker Equity"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/&title=The Math behind Poker Equity"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/&title=The Math behind Poker Equity"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://abircb.github.io/blog/2019/07/23/The-Math-behind-Poker-Equity/&name=The Math behind Poker Equity&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 Abir
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/blog/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+<script src="/blog/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
