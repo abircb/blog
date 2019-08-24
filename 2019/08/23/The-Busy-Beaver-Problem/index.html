@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="DevTales">
 <meta property="og:description" content="The Turing MachineIn 1936, Alan Turing answered the question that still bewilders many a man - what do we mean by ‘computable’? “Computing”, said Turing  is normally done by writing certain symbols on">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-23T12:10:19.334Z">
+<meta property="og:updated_time" content="2019-08-24T08:27:11.060Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The Turing Machine and the Busy Beaver Problem">
 <meta name="twitter:description" content="The Turing MachineIn 1936, Alan Turing answered the question that still bewilders many a man - what do we mean by ‘computable’? “Computing”, said Turing  is normally done by writing certain symbols on">
@@ -151,14 +151,14 @@
 <p>A tape that extends infinitely in both directions, not limited by the bounds of physical resources (which are better known to us as memory and CPU). Furthermore, there’s a symbol written on each square of the tape, like the ‘1’s and ‘0’s in a modern computer’s memory. One can manipulate these symbols by moving the tape head back and forth - marking symbols, replacing them, and even deleting them - to define a set of rules/instructions (a program) This machine - as recondite as it may seem to be - can run every single program ever produced by humankind. From running your OS (by adding input capabilities, of course) to your Tic-Tac Toe game, you name it, the Turing machine can do it. But, there is a problem.</p>
 <h2 id="The-Halting-Problem"><a href="#The-Halting-Problem" class="headerlink" title="The Halting Problem"></a>The Halting Problem</h2><p>Set a tape head lose on a certain set of symbols, and it might stop eventually, or it might run forever. Now if my program is going to run forever, I’d like to know that in advance. But how can we determine, in a finite amount of time, whether something will go on endlessly? (the Halting Problem) The answer is we can’t, and the proof is a beautiful form of self-reference.</p>
 <p>Turing imagined a special machine that could solve the Halting Problem. Then he showed how we could have this machine analyze itself, in such a way that it has to halt if it runs forever, and run forever if it halts. And there lies your answer; just like a hound that finally catches its tail and devours it.</p>
-<p>I like to remember it a little differently - think of the Turing machine as a person who has hindsight before completing an action; contradicting the very meaning of hindsight. Eureka.</p>
+<p>I like to remember it a little differently. Think of it like this - to solve the Halting Problem, the Turing machine needs to be like a person who has hindsight before completing an action; contradicting the very meaning of hindsight. Eureka.</p>
 <h2 id="The-Busy-Beaver-Problem"><a href="#The-Busy-Beaver-Problem" class="headerlink" title="The Busy Beaver Problem"></a>The Busy Beaver Problem</h2><p>In 1962, Tibor Rado introduced a simple, intuitive idea. Just as we can classify words by how many letters they contain, we can classify Turing machines by how many rules they have in the tape head, i.e., for each fixed whole number N, just as there are only finitely many distinct words with N letters, so too are there only finitely many distinct machines with N rules. Some of these machines halt, some don’t.</p>
 <p>Of the ones that halt, he asked, what is the maximum number of steps that any machine takes before it halts. And this one question gave birth to one of the most famed pastimes in Computer Science history: the Busy Beaver Problem. The aim of the game is to find BB(N), where N is the number of finite characters a Turing machine can have.</p>
 <p>BB(1) = 1<br>BB(2) = 6<br>BB(3) = 21<br>BB(4) = 107<br>BB(5) = unverified<br>BB(6) = 8,690,333,381,690,951</p>
 <p>The sequence of Busy Beaver numbers, BB(1), BB(2), and so on, grows faster than any computable sequence. Faster than exponentials, stacked exponentials, the Ackermann sequence, you name it.</p>
 <center>..</center>
 
-<p>Ironic, isn’t it? The idea that a machine that can compute any program ever produced by humankind gave birth to a sequence — too fast for any computer to keep up with it, even in principle - that is non-computable.</p>
+<p>Ironic, isn’t it? The idea that a machine that can compute any program ever produced by humankind gave birth to a sequence — too fast for any computer to keep up with it, even in principle.</p>
 
   </div>
 </article>
