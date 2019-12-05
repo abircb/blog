@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="The Turing MachineIn 1936, Alan Turing answered the question that still bewilders many a man - what do we mean by ‘computable’? “Computing”, said Turing  is normally done by writing certain symbols on">
+<meta name="keywords" content="Math,Turing Machine,Halting Problem,Busy Beaver">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Turing Machine and the Busy Beaver Problem">
+<meta property="og:url" content="https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/index.html">
+<meta property="og:site_name" content="DevTales">
+<meta property="og:description" content="The Turing MachineIn 1936, Alan Turing answered the question that still bewilders many a man - what do we mean by ‘computable’? “Computing”, said Turing  is normally done by writing certain symbols on">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-12-05T02:21:27.244Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Turing Machine and the Busy Beaver Problem">
+<meta name="twitter:description" content="The Turing MachineIn 1936, Alan Turing answered the question that still bewilders many a man - what do we mean by ‘computable’? “Computing”, said Turing  is normally done by writing certain symbols on">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/blog/images/favicon1.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/blog/images/favicon1.ico" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/favicon1.ico">
+          
+        
+    
+    <!-- title -->
+    <title>The Turing Machine and the Busy Beaver Problem</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/blog/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/blog/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="https://abirbhushan.com/">About</a></li>
+         
+          <li><a href="/blog/archives/">Archive</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/blog/2019/11/18/3-More-Incredible-Python-Data-Structure-Tricks/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/&text=The Turing Machine and the Busy Beaver Problem"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/&title=The Turing Machine and the Busy Beaver Problem"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/&is_video=false&description=The Turing Machine and the Busy Beaver Problem"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=The Turing Machine and the Busy Beaver Problem&body=Check out this article: https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/&title=The Turing Machine and the Busy Beaver Problem"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/&title=The Turing Machine and the Busy Beaver Problem"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/&title=The Turing Machine and the Busy Beaver Problem"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/&title=The Turing Machine and the Busy Beaver Problem"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/&name=The Turing Machine and the Busy Beaver Problem&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Turing-Machine"><span class="toc-number">1.</span> <span class="toc-text">The Turing Machine</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Halting-Problem"><span class="toc-number">2.</span> <span class="toc-text">The Halting Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Busy-Beaver-Problem"><span class="toc-number">3.</span> <span class="toc-text">The Busy Beaver Problem</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        The Turing Machine and the Busy Beaver Problem
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">DevTales</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-12-05T02:21:59.000Z" itemprop="datePublished">2019-12-05</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/Busy-Beaver/">Busy Beaver</a>, <a class="tag-link" href="/blog/tags/Halting-Problem/">Halting Problem</a>, <a class="tag-link" href="/blog/tags/Math/">Math</a>, <a class="tag-link" href="/blog/tags/Turing-Machine/">Turing Machine</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="The-Turing-Machine"><a href="#The-Turing-Machine" class="headerlink" title="The Turing Machine"></a>The Turing Machine</h2><p>In 1936, Alan Turing answered the question that still bewilders many a man - what do we mean by ‘computable’?</p>
+<p>“Computing”, said Turing</p>
+<blockquote>
+<p>is normally done by writing certain symbols on paper. We may suppose this paper to be divided into squares like a child’s arithmetic book. In elementary arithmetic the 2-dimensional character of the paper is sometimes used. But such use is always avoidable, and I think it will be agreed that the two-dimensional character of paper is no essential of computation. I assume then that the computation is carried out on one-dimensional paper, on a tape divided into squares.</p>
+</blockquote>
+<p>A tape that extends infinitely in both directions, not limited by the bounds of physical resources (which are better known to us as memory and CPU). Furthermore, there’s a symbol written on each square of the tape, like the ‘1’s and ‘0’s in a modern computer’s memory. One can manipulate these symbols by moving the tape head back and forth - marking symbols, replacing them, and even deleting them - to define a set of rules/instructions (a program) This machine - as recondite as it may seem to be - can run every single program ever produced by humankind. From running your OS (by adding input capabilities, of course) to your Tic-Tac Toe game, you name it, the Turing machine can do it. But, there is a problem.</p>
+<h2 id="The-Halting-Problem"><a href="#The-Halting-Problem" class="headerlink" title="The Halting Problem"></a>The Halting Problem</h2><p>Set a tape head lose on a certain set of symbols, and it might stop eventually, or it might run forever. Now if my program is going to run forever, I’d like to know that in advance. But how can we determine, in a finite amount of time, whether something will go on endlessly? (the Halting Problem) The answer is we can’t, and the proof is a beautiful form of self-reference.</p>
+<p>Turing imagined a special machine that could solve the Halting Problem. Then he showed how we could have this machine analyze itself, in such a way that it has to halt if it runs forever, and run forever if it halts. And there lies your answer; just like a hound that finally catches its tail and devours it.</p>
+<p>I like to remember it a little differently. Think of it like this - to solve the Halting Problem, the Turing machine needs to be like a person who has hindsight before completing an action; contradicting the very meaning of hindsight. Eureka.</p>
+<h2 id="The-Busy-Beaver-Problem"><a href="#The-Busy-Beaver-Problem" class="headerlink" title="The Busy Beaver Problem"></a>The Busy Beaver Problem</h2><p>In 1962, Tibor Rado introduced a simple, intuitive idea. Just as we can classify words by how many letters they contain, we can classify Turing machines by how many rules they have in the tape head, i.e., for each fixed whole number N, just as there are only finitely many distinct words with N letters, so too are there only finitely many distinct machines with N rules. Some of these machines halt, some don’t.</p>
+<p>Of the ones that halt, he asked, what is the maximum number of steps that any machine takes before it halts. And this one question gave birth to one of the most famed pastimes in Computer Science history: the Busy Beaver Problem. The aim of the game is to find BB(N), where N is the number of finite characters a Turing machine can have.</p>
+<p>BB(1) = 1<br>BB(2) = 6<br>BB(3) = 21<br>BB(4) = 107<br>BB(5) = unverified<br>BB(6) = 8,690,333,381,690,951</p>
+<p>The sequence of Busy Beaver numbers, BB(1), BB(2), and so on, grows faster than any computable sequence. Faster than exponentials, stacked exponentials, the Ackermann sequence, you name it.</p>
+<center>..</center>
+
+<p>Ironic, isn’t it? The idea that a machine that can compute any program ever produced by humankind gave birth to a sequence — too fast for any computer to keep up with it, even in principle.</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="https://abirbhushan.com/">About</a></li>
+         
+          <li><a href="/blog/archives/">Archive</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Turing-Machine"><span class="toc-number">1.</span> <span class="toc-text">The Turing Machine</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Halting-Problem"><span class="toc-number">2.</span> <span class="toc-text">The Halting Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Busy-Beaver-Problem"><span class="toc-number">3.</span> <span class="toc-text">The Busy Beaver Problem</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/&text=The Turing Machine and the Busy Beaver Problem"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/&title=The Turing Machine and the Busy Beaver Problem"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/&is_video=false&description=The Turing Machine and the Busy Beaver Problem"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=The Turing Machine and the Busy Beaver Problem&body=Check out this article: https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/&title=The Turing Machine and the Busy Beaver Problem"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/&title=The Turing Machine and the Busy Beaver Problem"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/&title=The Turing Machine and the Busy Beaver Problem"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/&title=The Turing Machine and the Busy Beaver Problem"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://abirbhushan.com/blog/2019/12/05/The-Busy-Beaver-Problem/&name=The Turing Machine and the Busy Beaver Problem&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 Abir
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="https://abirbhushan.com/">About</a></li>
+         
+          <li><a href="/blog/archives/">Archive</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/blog/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/blog/lib/jquery/jquery.min.js"></script>
+<script src="/blog/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-144516567-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>
