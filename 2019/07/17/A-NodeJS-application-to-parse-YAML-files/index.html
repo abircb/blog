@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="DevTales">
 <meta property="og:description" content="These past two weeks I have been interning at Infibeam- a company that manages all of India’s public procurement using their online Government eMarketplace (GeM) platform- as a Business Intelligence i">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-03-07T14:36:27.594Z">
+<meta property="og:updated_time" content="2020-03-11T16:03:55.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A Node.js application to parse YAML files">
 <meta name="twitter:description" content="These past two weeks I have been interning at Infibeam- a company that manages all of India’s public procurement using their online Government eMarketplace (GeM) platform- as a Business Intelligence i">
@@ -148,8 +148,8 @@
     <p>These past two weeks I have been interning at Infibeam- a company that manages all of India’s public procurement using their online Government eMarketplace (GeM) platform- as a Business Intelligence intern. The company’s Data Warehouse in Bangalore sends all its data in YAML files, but the Analytics team needs this data in a database. So I was given the job of automating this process of putting the YAML data in an SQL database. To do so, I am building a Node.js service that first converts YAML to JSON and then inserts it into a DB.</p>
 <p>Here, I will be discussing my use of JS-YAML to accomplish this task.</p>
 <h2 id="JS-YAML-YAML-1-2-parser"><a href="#JS-YAML-YAML-1-2-parser" class="headerlink" title="JS-YAML - YAML 1.2 parser"></a>JS-YAML - YAML 1.2 parser</h2><p><a href="https://github.com/nodeca/js-yaml" target="_blank" rel="noopener">js-yaml</a> is the most popular library to convert YAML files to JSON.</p>
-<p>To install or use js-yml, first install <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>, then</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install js-yml</span><br></pre></td></tr></table></figure>
+<p>To install or use js-yaml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install js-yaml</span><br></pre></td></tr></table></figure>
 
 <p>Getting started is very easy</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">yaml = <span class="built_in">require</span>(<span class="string">'js-yaml'</span>);</span><br><span class="line">fs   = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Get document, or throw exception on error</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> yamlData = yaml.safeLoad(fs.readFileSync(<span class="string">'foo/bar'</span>, <span class="string">'utf8'</span>));</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(yamlData));</span><br><span class="line">&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(error);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
