@@ -7,7 +7,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="So as some of y’all might know, I am currently interning with an e-commerce company that handles India’s public procurement. Well, the company runs almost a thousand checks on its database every day a">
-<meta name="keywords" content="JavaScript,Libraries,Express JS,Node.js">
+<meta name="keywords" content="JavaScript,Node.js,Libraries,Express JS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DataTables API">
 <meta property="og:url" content="https://abirbhushan.com/blog/2019/07/23/DataTables-API/index.html">
@@ -15,7 +15,7 @@
 <meta property="og:description" content="So as some of y’all might know, I am currently interning with an e-commerce company that handles India’s public procurement. Well, the company runs almost a thousand checks on its database every day a">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://abirbhushan.com/blog/2019/07/23/DataTables-API/RunLogs.png">
-<meta property="og:updated_time" content="2021-02-12T10:20:08.320Z">
+<meta property="og:updated_time" content="2021-05-07T22:34:13.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DataTables API">
 <meta name="twitter:description" content="So as some of y’all might know, I am currently interning with an e-commerce company that handles India’s public procurement. Well, the company runs almost a thousand checks on its database every day a">
@@ -147,11 +147,11 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>So as some of y’all might know, I am currently interning with an e-commerce company that handles India’s public procurement. Well, the company runs almost a thousand checks on its database every day and logs it into a SQL database. The logs contain the ID, date/time, state (error or successful), description, etc. of those checks. Now I was given the job to build a web app that runs these checks on the database, logs it into a table, and then generates a UI for this table so that the Database Management team can fix any errors that exist.</p>
-<h2 id="The-Back-End"><a href="#The-Back-End" class="headerlink" title="The Back-End"></a>The Back-End</h2><p>The Back-End, again, is completely written using Node.js and I am using Express to build the web application. The Back-End is actually quite simple- the application runs some SQL procedures on the database, stores the results of each procedure into an object and then creates an array of objects to insert into an SQL table- although creating and testing the SQL procedures took time. Now that I had the SQL table, the only thing left was to create a UI for it.</p>
-<h2 id="The-Front-End"><a href="#The-Front-End" class="headerlink" title="The Front-End"></a>The Front-End</h2><p>Using EJS, I displayed all the data in a simple, paginated HTML table. Next, I had to build the sorting, filtering, searching, etc. options for the table. Now, one way to do this is to write these operations yourself and include it in the UI. The other better, convenient, and faster way of doing this is using DataTables.</p>
-<p><ins>Note:</ins> If you don’t know how much data you are dealing with, it is better to write these operations yourself in the Server-side. However, in this case, the date entries are fixed so this is fine.</p>
-<h2 id="DataTables"><a href="#DataTables" class="headerlink" title="DataTables"></a>DataTables</h2><p>DataTables is a plug-in for jQuery that helps you make interactive tables for web apps and adds advanced operations on the data. It is extremely simple to start.</p>
+    <p>So as some of y’all might know, I am currently interning with an e-commerce company that handles India’s public procurement. Well, the company runs almost a thousand checks on its database every day and logs it into a SQL database. The logs contain the ID, date/time, state (error or successful), description, etc., of those checks. Now I was given the job to build a web application that runs these checks on the database, logs it into a table, and then generates a UI for this table so that the Database Management team can fix any errors that exist.</p>
+<h2 id="The-Back-End"><a href="#The-Back-End" class="headerlink" title="The Back-End"></a>The Back-End</h2><p>The Back-End, again, is completely written using Node.js, and I am using Express to build the web application. The Back-End is actually quite simple — the application runs some SQL procedures on the database, stores the results of each procedure into an object, and then creates an array of objects to insert into an SQL table — although creating and testing the SQL procedures has taken a significant amount of my time. Now that I had the SQL table, the only thing left was to create a UI for it.</p>
+<h2 id="The-Front-End"><a href="#The-Front-End" class="headerlink" title="The Front-End"></a>The Front-End</h2><p>Using EJS, I displayed all the data in a simple, paginated HTML table. Next, I had to build the sorting, filtering, searching, etc. options for the table. Now, one way to do this is to write these operations yourself and include them in the UI. The other better, convenient, and faster way of doing this is using DataTables.</p>
+<p><ins>Note:</ins> If you don’t know how much data you are dealing with, it is better to write these operations yourself in the server-side to prevent an overflow. However, in this case, the data entries are fixed so this is fine.</p>
+<h2 id="DataTables"><a href="#DataTables" class="headerlink" title="DataTables"></a>DataTables</h2><p>DataTables is a plug-in for <code>jQuery</code> that helps you make interactive tables for web apps and adds advanced operations on the data. It is extremely simple to start.</p>
 <p>Add the DataTables CDN to your HTML file (along with jQuery of course)</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">" https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js "</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -161,7 +161,7 @@
 <p>They also have a pretty amazing <a href="https://datatables.net/examples/index" target="_blank" rel="noopener">API</a> that can add a myriad of features to your table. This is what mine looked like.</p>
 <p><img src="./RunLogs.png" alt></p>
 <p>I can’t show you parts of the data because it is sensitive and I have signed an NDA.</p>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>So this is it, a flexible API that you can use to enhance HTML Tables. In the next few posts, I will be sharing a post about the power of habits and more Node.js!</p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>So this is it: a flexible, easy-to-understand API that you can use to enhance HTML Tables. In the next few posts, I will be sharing a post about the power of habits and more Poker!</p>
 
   </div>
 </article>
